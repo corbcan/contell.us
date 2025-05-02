@@ -1,0 +1,105 @@
+/* reset and box‑sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* full‑screen black background */
+  body {
+    position: relative;
+    height: 100vh;
+    background: #000;
+    /* switch to Iowan Old Style, normal weight */
+    font-family: 'Iowan Old Style', serif;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  /* upper‑left group */
+  .top-left {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+  }
+  
+  /* both lines: white, normal weight */
+  .top-left h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #fff;
+    font-weight: normal;
+  }
+  
+  /* ghosted version of the first line */
+  .top-left h2.mute {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* lower‑right group */
+  .bottom-right {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    text-align: right;
+  }
+  
+  /* main title: normal weight */
+  .title {
+    font-size: 6rem;
+    font-weight: normal;
+    line-height: 1;
+  }
+  
+  /* byline: normal weight */
+  .byline {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+  
+  /* --- mobile adjustments --- */
+  @media (max-width: 768px) {
+    .top-left h2 {
+      font-size: 1.2rem;
+    }
+    .bottom-right .title {
+      font-size: 4rem;
+    }
+    .byline {
+      font-size: 1rem;
+    }
+  }
+/* bottom‑left icon container */
+.bottom-left {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    display: flex;
+    align-items: center;   /* vertically center all icons */
+    gap: 1rem;
+  }
+  
+  /* base icon size (this remains the Spotify size) */
+  .bottom-left .icon {
+    display: block;
+    width: 2rem;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  /* override for Apple to make it 2.5× larger */
+  .bottom-left .apple-icon {
+    width: 5rem;           /* 2rem × 2.5 = 5rem */
+  }
+  
+  /* mobile: scale both down proportionally */
+  @media (max-width: 768px) {
+    .bottom-left .spotify-icon {
+      width: 1.5rem;
+    }
+    .bottom-left .apple-icon {
+      width: calc(1.5rem * 2.5); /* 3.75rem */
+    }
+  }
+  
