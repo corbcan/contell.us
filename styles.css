@@ -5,15 +5,14 @@
     box-sizing: border-box;
   }
   
-  /* full‑screen black background */
   body {
     position: relative;
-    height: 100vh;
+    /* allow page to grow and scroll */
+    min-height: 100vh;
     background: #000;
-    /* switch to Iowan Old Style, normal weight */
     font-family: 'Iowan Old Style', serif;
     color: #fff;
-    overflow: hidden;
+    overflow: auto;                /* <-- allow scrolling */
   }
   
   /* upper‑left group */
@@ -23,7 +22,6 @@
     left: 5%;
   }
   
-  /* both lines: white, normal weight */
   .top-left h2 {
     font-size: 2rem;
     line-height: 1.2;
@@ -31,7 +29,6 @@
     font-weight: normal;
   }
   
-  /* ghosted version of the first line */
   .top-left h2.mute {
     color: rgba(255, 255, 255, 0.3);
   }
@@ -42,20 +39,40 @@
     bottom: 5%;
     right: 5%;
     text-align: right;
+    /* no transform here on desktop */
   }
   
-  /* main title: normal weight */
   .title {
     font-size: 6rem;
     font-weight: normal;
     line-height: 1;
   }
   
-  /* byline: normal weight */
   .byline {
     margin-top: 0.5rem;
     font-size: 1.5rem;
     font-weight: normal;
+  }
+  
+  /* bottom‑left icon container */
+  .bottom-left {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    display: flex;
+    align-items: center;           /* vertically center icons */
+    gap: 1rem;
+  }
+  
+  .bottom-left .icon {
+    display: block;
+    width: 2rem;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .bottom-left .apple-icon {
+    width: 5rem;                   /* 2rem × 2.5 */
   }
   
   /* --- mobile adjustments --- */
@@ -69,37 +86,21 @@
     .byline {
       font-size: 1rem;
     }
-  }
-/* bottom‑left icon container */
-.bottom-left {
-    position: absolute;
-    bottom: 5%;
-    left: 5%;
-    display: flex;
-    align-items: center;   /* vertically center all icons */
-    gap: 1rem;
-  }
   
-  /* base icon size (this remains the Spotify size) */
-  .bottom-left .icon {
-    display: block;
-    width: 2rem;
-    height: auto;
-    cursor: pointer;
-  }
+    /* center the bottom‑right block on mobile */
+    .bottom-right {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      text-align: center;
+    }
   
-  /* override for Apple to make it 2.5× larger */
-  .bottom-left .apple-icon {
-    width: 5rem;           /* 2rem × 2.5 = 5rem */
-  }
-  
-  /* mobile: scale both down proportionally */
-  @media (max-width: 768px) {
+    /* scale icons down proportionally */
     .bottom-left .spotify-icon {
       width: 1.5rem;
     }
     .bottom-left .apple-icon {
-      width: calc(1.5rem * 2.5); /* 3.75rem */
+      width: calc(1.5rem * 2.5);  /* =3.75rem */
     }
   }
   
